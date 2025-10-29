@@ -25,13 +25,13 @@ export class Reservas implements OnInit {
       email: ['', [Validators.required, Validators.email]]
     }, { validators: this.validarDatas });
 
-    // Restaurar dados do localStorage
+    
     const savedData = localStorage.getItem('reservasForm');
     if (savedData) {
       this.reservasForm.setValue(JSON.parse(savedData));
     }
 
-    // Salvar automaticamente no localStorage ao alterar o formulário
+   
     this.reservasForm.valueChanges.subscribe(value => {
       localStorage.setItem('reservasForm', JSON.stringify(value));
     });
@@ -52,3 +52,4 @@ export class Reservas implements OnInit {
   }
 
 }
+
