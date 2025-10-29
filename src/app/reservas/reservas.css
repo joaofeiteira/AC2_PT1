@@ -1,0 +1,77 @@
+form {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #89db59;
+  border-radius: 8px;
+  background-color: #89db59;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo dos rótulos */
+label {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Estilo dos inputs e selects */
+input, select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #6c63ff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+}
+
+/* Mensagens de erro */
+small {
+  color: #e63946;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Botão de envio */
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #574dcf;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilo do título */
+h2 {
+  text-align: center;
+  color: #6c63ff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Adicionando borda vermelha para campos inválidos */
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+  border-color: #e63946;
+}

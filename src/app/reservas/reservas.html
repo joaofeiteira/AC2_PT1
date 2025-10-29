@@ -1,0 +1,41 @@
+<form [formGroup]="reservasForm" (ngSubit)="onSubmit()">
+    <h2>Reserva de Viagens</h2>
+
+    <label>Destino:</label>
+    <select formControlName="destino">
+        <option *ngFor="let d of destino" [value]="d">{{ d }}</option>
+    </select>
+    <div *ngIf="reservasForm.get('destino')?.invalid && reservasForm.get('destino')?.touched">
+        <small>É obrigatório o preenchimento do destino.</small>
+    </div>
+
+    <label>Data de Ida:</label>
+    <input type="date" formControlName="dataIda">
+    <div *ngIf="reservasForm.get('dataIda')?.invalid && reservasForm.get('dataIda')?.touched">
+        <small>É obrigatório o preenchimento da data de ida.</small>
+    </div>
+
+    <label>Data de Volta:</label>
+    <input type="date" formControlName="dataVolta">
+    <div *ngIf="reservasForm.get('dataVolta')?.invalid && reservasForm.get('dataVolta')?.touched">
+        <small>É obrigatório o preenchimento da data de volta.</small>
+    </div>
+
+    <label>Passageiros:</label>
+    <input type="number" formControlName="passageiros">
+    <div *ngIf="reservasForm.get('passageiros')?.invalid && reservasForm.get('passageiros')?.touched">
+        <small *ngIf="reservasForm.get('passageiros')?.hasError('required')">Campo obrigatório</small>
+        <small *ngIf="reservasForm.get('passageiros')?.hasError('min') || reservasForm.get('passageiros')?.hasError('max')">O numero de passageiros precisa ser entre 1 e 5.</small>
+    </div>
+
+    <label>E-mail:</label>
+    <input type="email" formControlName="email">
+    <div *ngIf="reservasForm.get('email')?.touched && reservasForm.get('email')?.errors">
+        <small *ngIf="reservasForm.get('email')?.hasError('required')">Esse campo é obrigatório.</small>
+        <small *ngIf="reservasForm.get('email')?.hasError('email')">E-mail inválido.</small>
+    </div>
+
+     <button type="submit" [disabled]="reservasForm.invalid">Enviar</button>
+
+
+</form>
